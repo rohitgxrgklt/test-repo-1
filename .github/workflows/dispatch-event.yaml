@@ -12,7 +12,7 @@ jobs:
       - name: Trigger repo1 workflow via repository_dispatch
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.REPO1_PAT }}
+          github-token: ${{ secrets.REPO2_PAT }}
           script: |
             github.rest.repos.createDispatchEvent({
               owner: "rohitgxrgklt",  // Replace with your GitHub username or organization
