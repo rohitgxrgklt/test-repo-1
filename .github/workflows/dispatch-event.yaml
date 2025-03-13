@@ -1,0 +1,24 @@
+name: Trigger Repo1 on PR Merge
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  trigger-repo1:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger repo1 workflow via repository_dispatch
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.REPO1_PAT }}
+          script: |
+            github.rest.repos.createDispatchEvent({
+              owner: "rohitgxrgklt",  // Replace with your GitHub username or organization
+              repo: "test-repo-2",
+              event_type: "sdk-pr-merged",
+              client_payload: {
+                pr_number: github.event.pull_request.number
+              }
+            })
