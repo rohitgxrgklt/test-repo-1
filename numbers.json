@@ -1,6 +1,8 @@
 {
+"llms_full_txt_tkn" : {
     "schemaVersion": 1,
     "label": "llms-full.txt token length",
     "message": "11358",
     "color": "blue"
+}
 }
